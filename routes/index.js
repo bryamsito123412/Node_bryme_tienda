@@ -3,6 +3,7 @@ const api = express.Router()
 const auth = require('../middlewares/auth')
 const productCtrl = require('../controllers/products')
 const userCtrl = require('../controllers/user')
+const cors = require('cors')
 
 api.get('/product', cors(), productCtrl.getProducts);
 api.get('/product/:productId', productCtrl.getProduct);
