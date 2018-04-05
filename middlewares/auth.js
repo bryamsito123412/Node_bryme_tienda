@@ -6,7 +6,7 @@ function isAuth(req, res, next) {
         return res.status(403).send({message: "no tiene permiso"})
     }
 
-    const token = req.headers().authorization.split(" ")[1]
+    const token = req.headers.authorization.split(" ")[1]
     services.decodeToken(token)
         .then(response => {
             req.user = response
