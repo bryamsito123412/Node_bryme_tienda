@@ -4,7 +4,7 @@ const auth = require('../middlewares/auth')
 const productCtrl = require('../controllers/products')
 const userCtrl = require('../controllers/user')
 
-api.get('/product', auth, productCtrl.getProducts);
+api.get('/product', productCtrl.getProducts);
 api.get('/product/:productId', productCtrl.getProduct);
 api.post('/product' , productCtrl.saveProduct);
 api.put('/product/:productId' , productCtrl.updateProduct);
