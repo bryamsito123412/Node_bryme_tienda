@@ -39,6 +39,12 @@ function signIn(req, res) {
 
 }
 
+function getUser(req, res) {
+
+
+
+}
+
 module.exports = {
     signUp,
     signIn

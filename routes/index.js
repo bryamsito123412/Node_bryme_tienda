@@ -2,6 +2,8 @@ const express = require("express")
 const api = express.Router()
 const auth = require('../middlewares/auth')
 const productCtrl = require('../controllers/products')
+const cursosCtrl = require('../controllers/curso')
+const alumnosCtrl = require('../controllers/alumnos')
 const userCtrl = require('../controllers/user')
 const cors = require('cors')
 
@@ -17,5 +19,15 @@ api.get('/private', auth, (req, res) => {
     res.status(200).send({ message: "tienes acceso"})
 
 });
+
+//RUTAS DE CURSOS
+
+api.post('/curso', cors(), cursosCtrl.insertCurso)
+api.get('/cursos', cors(), cursosCtrl.getCursos)
+
+//Rutas de Alumnos
+
+api.post('/alumno', cors(), alumnosCtrl.insertAlumno)
+api.get('/alumnos', cors(), alumnosCtrl.getAlumnos)
 
 module.exports = api
