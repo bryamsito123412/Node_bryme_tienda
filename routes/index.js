@@ -30,4 +30,6 @@ api.get('/cursos', cors(), cursosCtrl.getCursos)
 api.post('/alumno', cors(), alumnosCtrl.insertAlumno)
 api.get('/alumnos', cors(), alumnosCtrl.getAlumnos)
 
+
+
 module.exports = api

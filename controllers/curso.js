@@ -1,28 +1,5 @@
 const Curso = require('../models/curso')
 
-function getCursoAlumnos(req,res){
-
-    CursoAlumnos.find().populate({patch: 'rut_alumno'}).exec((err, curso_alumno) => {
-        if(err){
-            res.status(500).send({message:'Error de conexión a la BD'});
-        }else{
-            if(!curso_alumno){
-                res.status(404).send({message: 'No existe el curso'});
-            }else{
-                Curso.populate(curso_alumno, {path: 'codigocurso'}, (err, docingreso) => {
-
-                    if(err){
-                        res.status(500).send({message: 'Error en la peticiona la BD'});
-                    }else{
-                        res.status(200).send(curso_alumno);
-                    }
-                });
-            }
-        }
-    });
-
-}
-
 function insertCurso(req, res) {
 
     let curso = new Curso()
@@ -53,7 +30,6 @@ function getCursos(req, res){
 }
 
 module.exports = {
-    getCursoAlumnos,
     insertCurso,
     getCursos
 };
